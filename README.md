@@ -1,21 +1,57 @@
-# React + TypeScript + Vite
+# Portafolio Inmersivo 3D - maylocode.dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portafolio web interactivo con experiencia 3D inmersiva, desarrollado con React, TypeScript y React Three Fiber.
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+## Stack Tecnológico
 
-## Deploy Your Own
+- **Frontend:** React 19 + TypeScript + Vite
+- **Estilos:** Tailwind CSS v4
+- **3D:** Three.js, @react-three/fiber, @react-three/drei
+- **SEO:** react-helmet-async
+- **Animaciones:** @react-spring/three
+- **Despliegue:** Vercel
 
-Deploy your own Vite project with Vercel.
+## Instalación
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/vite-react&template=vite-react)
-
-_Live Example: https://vite-react-example.vercel.app_
-
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
+```bash
+pnpm install
 ```
+
+## Scripts Disponibles
+
+```bash
+pnpm run dev      # Servidor de desarrollo
+pnpm run build    # Build de producción
+pnpm run preview  # Preview del build
+pnpm run lint     # Linter ESLint
+```
+
+## Estructura del Proyecto
+
+```
+src/
+├── components/
+│   ├── layout/          # Layout y SEO
+│   ├── three/           # Escena 3D
+│   └── portfolio/       # UI del portafolio
+├── data/                # Datos de proyectos
+├── hooks/               # Hooks personalizados
+└── types/               # Tipos TypeScript
+public/
+├── Computer.glb         # Modelo 3D
+├── robots.txt           # SEO
+└── sitemap.xml          # SEO
+```
+
+## Características
+
+- **Experiencia 3D:** Modelo 3D interactivo de una computadora
+- **Zoom animado:** Click o tecla para hacer zoom hacia el monitor
+- **UI integrada:** Portafolio completo renderizado dentro del monitor 3D
+- **Modo 2D:** Botón ESC para ver versión plana sin 3D
+- **Video hover:** Las tarjetas de proyectos reproducen video al pasar el mouse
+- **SEO optimizado:** Meta tags dinámicas para redes sociales
+
+## Licencia
+
+MIT
