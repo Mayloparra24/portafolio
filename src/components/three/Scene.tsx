@@ -1,46 +1,72 @@
-import { Suspense } from 'react'
+import { useState, useCallback } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment, Html } from '@react-three/drei'
+import * as THREE from 'three'
 import ComputerModel from './ComputerModel'
 import CameraController from './CameraController'
 import MonitorUI from '../portfolio/MonitorUI'
 import { useCameraZoom } from '../../hooks/useCameraZoom'
 
-function LoadingFallback() {
+function LoadingScreen() {
   return (
-    <Html center>
-      <div className="text-accent text-lg animate-pulse">Cargando modelo 3D...</div>
-    </Html>
+    <div className="absolute inset-0 flex items-center justify-center bg-navy-900">
+      <div className="text-accent text-xl animate-pulse">Cargando modelo 3D...</div>
+    </div>
   )
 }
 
 export default function Scene() {
-  const { isZoomed, toggleZoom, animate } = useCameraZoom()
+  const [modelInfo, setModelInfo] = useState<{ size: THREE.Vector3 } | null>(null)
+
+  const handleModelLoaded = useCallback((info: { size: THREE.Vector3 }) => {
+    setModelInfo(info)
+  }, [])
+
+  const cameraStart: [number, number, number] = modelInfo
+    ? [0, modelInfo.size.y * 0.6, modelInfo.size.z * 2.5]
+    : [0, 2, 5]
+
+  const cameraEnd: [number, number, number] = modelInfo
+    ? [0, modelInfo.size.y * 0.5, modelInfo.size.z * 0.8]
+    : [0, 1.2, 1.8]
+
+  const lookAtY = modelInfo ? modelInfo.size.y * 0.45 : 1
+
+  const { isZoomed, toggleZoom, animate } = useCameraZoom(cameraStart, cameraEnd, lookAtY)
 
   return (
-    <Canvas
-      shadows
-      camera={{ position: [0, 1.5, 5], fov: 50 }}
-      className="h-full w-full"
-    >
-      <Suspense fallback={<LoadingFallback />}>
-        <ambientLight intensity={0.5} />
+    <div className="relative h-full w-full">
+      {!modelInfo && <LoadingScreen />}
+      <Canvas
+        shadows
+        dpr={[1, 2]}
+        flat
+        camera={{ position: cameraStart, fov: 45 }}
+        gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
+      >
+        <color attach="background" args={['#0a192f']} />
+
+        <ambientLight intensity={0.6} />
         <directionalLight
-          position={[5, 5, 5]}
-          intensity={1}
+          position={[5, 8, 5]}
+          intensity={1.5}
           castShadow
           shadow-mapSize-width={2048}
           shadow-mapSize-height={2048}
         />
-        <pointLight position={[-3, 2, -3]} intensity={0.5} color="#64ffda" />
+        <hemisphereLight
+          color="#b1e1ff"
+          groundColor="#0a192f"
+          intensity={0.4}
+        />
 
-        <ComputerModel />
+        <ComputerModel onLoaded={handleModelLoaded} />
 
-        {isZoomed && (
+        {isZoomed && modelInfo && (
           <Html
             transform
-            position={[0, 1.15, 0.41]}
-            scale={0.18}
+            position={[0, modelInfo.size.y * 0.45, modelInfo.size.z * 0.25]}
+            scale={modelInfo.size.x * 0.12}
           >
             <MonitorUI />
           </Html>
@@ -48,8 +74,12 @@ export default function Scene() {
 
         <Environment preset="city" />
 
-        <CameraController onAnimate={animate} onClick={toggleZoom} isZoomed={isZoomed} />
-      </Suspense>
-    </Canvas>
+        <CameraController
+          onAnimate={animate}
+          onClick={toggleZoom}
+          isZoomed={isZoomed}
+        />
+      </Canvas>
+    </div>
   )
 }
