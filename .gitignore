@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 pnpm-lock.yaml
 .opencode/
+graphify-out/
+
+# Build artifacts
+*.tsbuildinfo
+*.tsbuildinfo.*
