@@ -27,8 +27,8 @@ export default function Scene() {
     : [0, 2, 5]
 
   const cameraEnd: [number, number, number] = modelInfo
-    ? [0, modelInfo.size.y * 0.5, modelInfo.size.z * 0.8]
-    : [0, 1.2, 1.8]
+    ? [0, modelInfo.size.y * 0.5, Math.max(modelInfo.size.z * 1.2, 2)]
+    : [0, 1.2, 2]
 
   const lookAtY = modelInfo ? modelInfo.size.y * 0.45 : 1
 

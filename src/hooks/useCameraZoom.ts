@@ -13,9 +13,16 @@ export function useCameraZoom(
   const progressRef = useRef(0)
   const startVec = useRef(new THREE.Vector3(...startPos))
   const endVec = useRef(new THREE.Vector3(...endPos))
+  const prevStartPos = useRef(startPos)
+  const prevEndPos = useRef(endPos)
 
-  startVec.current.set(...startPos)
-  endVec.current.set(...endPos)
+  if (prevStartPos.current !== startPos || prevEndPos.current !== endPos) {
+    startVec.current.set(...startPos)
+    endVec.current.set(...endPos)
+    progressRef.current = 0
+    prevStartPos.current = startPos
+    prevEndPos.current = endPos
+  }
 
   const toggleZoom = useCallback(() => {
     setIsZoomed(prev => !prev)

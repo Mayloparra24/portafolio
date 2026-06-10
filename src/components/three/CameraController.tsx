@@ -12,6 +12,7 @@ export default function CameraController({ onAnimate, onClick, isZoomed }: Camer
   const { camera, gl } = useThree()
   const cameraRef = useRef(camera as PerspectiveCamera)
   const pointerDownPos = useRef<{ x: number; y: number } | null>(null)
+  const lastClickTime = useRef(0)
 
   useEffect(() => {
     const handlePointerDown = (e: PointerEvent) => {
@@ -23,8 +24,10 @@ export default function CameraController({ onAnimate, onClick, isZoomed }: Camer
       const dx = e.clientX - pointerDownPos.current.x
       const dy = e.clientY - pointerDownPos.current.y
       const distance = Math.sqrt(dx * dx + dy * dy)
-      if (distance < 5) {
+      const now = Date.now()
+      if (distance < 5 && now - lastClickTime.current > 300) {
         onClick()
+        lastClickTime.current = now
       }
       pointerDownPos.current = null
     }
