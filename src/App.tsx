@@ -30,7 +30,7 @@ function App() {
         {is3DMode ? (
           <Scene />
         ) : (
-          <div className="h-full w-full overflow-y-auto bg-navy-900 flex items-center justify-center p-8">
+          <div className="h-full w-full overflow-y-auto bg-navy-900 p-8">
             <MonitorUI embedded={false} />
           </div>
         )}
