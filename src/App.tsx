@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect, useCallback } from 'react'
+import Layout from './components/layout/Layout'
+import Scene from './components/three/Scene'
+import MonitorUI from './components/portfolio/MonitorUI'
+import EscapeButton from './components/portfolio/EscapeButton'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [is3DMode, setIs3DMode] = useState(true)
+
+  const toggleMode = useCallback(() => {
+    setIs3DMode(prev => !prev)
+  }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        toggleMode()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [toggleMode])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Layout>
+      <main className="h-full w-full relative">
+        <EscapeButton is3DMode={is3DMode} onToggle={toggleMode} />
+        
+        {is3DMode ? (
+          <Scene />
+        ) : (
+          <div className="h-full w-full overflow-y-auto bg-navy-900 flex items-center justify-center p-8">
+            <MonitorUI embedded={false} />
+          </div>
+        )}
+      </main>
+    </Layout>
   )
 }
 
