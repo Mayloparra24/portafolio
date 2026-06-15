@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 
 const BOOT_LINES = [
-  { text: 'init maylo_portfolio...', delay: 100 },
-  { text: 'loading assets...', delay: 300 },
-  { text: '[OK] assets loaded', delay: 600 },
-  { text: 'loading projects...', delay: 900 },
-  { text: '[OK] 4 projects loaded', delay: 1200 },
-  { text: 'loading skills...', delay: 1500 },
-  { text: '[OK] 10 skills loaded', delay: 1800 },
-  { text: 'loading contact...', delay: 2100 },
-  { text: '[OK] contact loaded', delay: 2400 },
-  { text: 'ready.', delay: 2700 },
+  { text: 'init maylo_portfolio...', delay: 40 },
+  { text: 'loading assets...', delay: 100 },
+  { text: '[OK] assets loaded', delay: 200 },
+  { text: 'loading projects...', delay: 300 },
+  { text: '[OK] 4 projects loaded', delay: 400 },
+  { text: 'loading skills...', delay: 500 },
+  { text: '[OK] 10 skills loaded', delay: 600 },
+  { text: 'loading contact...', delay: 700 },
+  { text: '[OK] contact loaded', delay: 800 },
+  { text: 'ready.', delay: 900 },
 ]
 
 interface BootSequenceProps {
@@ -27,14 +27,28 @@ export default function BootSequence({ onComplete }: BootSequenceProps) {
       const timer = setTimeout(() => {
         setVisibleLines(prev => [...prev, line.text])
         if (index === BOOT_LINES.length - 1) {
-          const completeTimer = setTimeout(() => onComplete(), 500)
+          const completeTimer = setTimeout(() => onComplete(), 200)
           timers.push(completeTimer)
         }
       }, line.delay)
       timers.push(timer)
     })
 
-    return () => timers.forEach(clearTimeout)
+    const skip = () => {
+      timers.forEach(clearTimeout)
+      onComplete()
+    }
+
+    document.addEventListener('click', skip)
+    document.addEventListener('keydown', skip)
+    document.addEventListener('touchstart', skip)
+
+    return () => {
+      timers.forEach(clearTimeout)
+      document.removeEventListener('click', skip)
+      document.removeEventListener('keydown', skip)
+      document.removeEventListener('touchstart', skip)
+    }
   }, [onComplete])
 
   return (
@@ -71,6 +85,9 @@ export default function BootSequence({ onComplete }: BootSequenceProps) {
             )}
           </div>
         </div>
+        <p className="text-center text-text-secondary text-xs mt-6 font-mono animate-fade-in">
+          Presiona cualquier tecla para saltar
+        </p>
       </div>
     </div>
   )

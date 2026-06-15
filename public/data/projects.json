@@ -32,7 +32,6 @@
     "description": "Esta api se encarga de recibir las peticiones de la aplicación móvil, procesarlas y devolver las respuestas correspondientes, esta api esta desarrollada con Laravel, y se encarga de manejar la lógica de negocio, la autenticación y la comunicación con el microservicio de estimación de peso.",
     "tags": ["Laravel", "PHP", "MySQL"],
     "skills": ["Laravel", "PHP", "MySQL"],
-    "repoUrl": "https://github.com/Mayloparra24/BowWeightCR_BackEnd",
-    "videoUrl": "/videos/ApiRest.webm"
+    "repoUrl": "https://github.com/Mayloparra24/BowWeightCR_BackEnd"
   }
 ]

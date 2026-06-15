@@ -25,7 +25,6 @@ export default function SEO({
 
   return (
     <Helmet>
-      <html lang="es" />
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
