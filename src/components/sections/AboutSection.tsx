@@ -42,7 +42,7 @@ export default function AboutSection({ onVisible }: AboutSectionProps) {
             <div className="relative group">
               <div className="h-36 w-36 rounded-full overflow-hidden border-2 border-accent/30 shadow-lg shadow-accent/10">
                 <img
-                  src="/profile-photo.svg"
+                  src="/Foto_Portafolio.avif"
                   alt="Maylo"
                   className="w-full h-full object-cover"
                 />
