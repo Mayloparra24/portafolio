@@ -26,9 +26,11 @@ pnpm run preview  # Preview del build
 pnpm run lint     # Linter ESLint
 ```
 
-##Proyecto desplegado
+## Proyecto desplegado
 
 [Portafolio Personal](maylocode.dev) - Portafolio desplegado en Vercel con dominio gratis dado en GitHub Student 
+
+
 
 ## Estructura del Proyecto
 
