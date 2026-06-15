@@ -23,35 +23,65 @@ export default function AboutSection({ onVisible }: AboutSectionProps) {
   }, [onVisible])
 
   return (
-    <section ref={sectionRef} className="min-h-screen flex items-center justify-center py-20 px-4">
-      <div className="max-w-2xl w-full">
-        <div className="flex items-center gap-2 mb-8 text-sm font-mono">
-          <span className="text-accent">$</span>
-          <span className="text-text-primary">whoami</span>
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center py-24 px-4">
+      <div className="w-full max-w-3xl window animate-fade-in">
+        <div className="window-titlebar">
+          <span className="window-dot window-dot-red" />
+          <span className="window-dot window-dot-yellow" />
+          <span className="window-dot window-dot-green" />
+          <span className="window-title">about.txt — maylo@portfolio</span>
         </div>
 
-        <div className="space-y-8 animate-fade-in">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="h-32 w-32 rounded-full bg-gradient-to-br from-accent/30 to-navy-700 border-2 border-accent/50 shadow-lg shadow-accent/20 overflow-hidden flex-shrink-0">
-              <img
-                src="/src/assets/Foto_Portafolio.png"
-                alt="Maylo"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none'
-                }}
-              />
+        <div className="window-content">
+          <div className="terminal-line text-sm mb-6">
+            <span className="terminal-prompt">maylo@portfolio:~$</span>
+            <span className="text-text-primary">whoami</span>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in">
+            <div className="relative group">
+              <div className="h-36 w-36 rounded-full overflow-hidden border-2 border-accent/30 shadow-lg shadow-accent/10">
+                <img
+                  src="/Foto_Portafolio.avif"
+                  alt="Maylo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 bg-navy-700 text-accent text-xs px-2 py-1 rounded border border-navy-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                ¡hola!
+              </div>
             </div>
-            <div className="text-center md:text-left">
-              <h1 className="text-4xl font-bold text-text-primary mb-2">Maylo</h1>
-              <h2 className="text-xl font-medium text-accent mb-4">Full Stack Developer</h2>
-              <p className="text-text-secondary max-w-md leading-relaxed">
-                Desarrollador apasionado por crear experiencias web inmersivas y soluciones tecnológicas innovadoras.
+
+            <div className="text-center md:text-left flex-1">
+              <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-2">
+                Maylo Parra
+              </h1>
+              <h2 className="text-lg md:text-xl font-medium text-accent mb-4">
+                Full Stack Developer
+              </h2>
+              <p className="text-text-secondary leading-relaxed max-w-lg">
+                Desarrollador apasionado por construir cosas que la gente realmente use.
+                Me gusta aprender haciendo, desde la base de datos hasta el último pixel de la interfaz.
               </p>
             </div>
           </div>
 
-          <div className="flex gap-4 justify-center md:justify-start">
+          <div className="mt-8 p-4 bg-navy-850 rounded-lg border border-navy-600 font-mono text-sm space-y-2">
+            <div className="terminal-line">
+              <span className="terminal-prompt">$</span>
+              <span className="text-text-secondary">location</span>
+            </div>
+            <div className="pl-6 text-text-primary">Costa Rica</div>
+            <div className="terminal-line">
+              <span className="terminal-prompt">$</span>
+              <span className="text-text-secondary">status</span>
+            </div>
+            <div className="pl-6 text-text-primary">
+              Estudiando, construyendo proyectos personales y buscando mi primera experiencia profesional.
+            </div>
+          </div>
+
+          <div className="flex gap-4 justify-center md:justify-start mt-8">
             <a
               href="/cv-es.pdf"
               download

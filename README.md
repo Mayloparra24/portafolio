@@ -1,14 +1,14 @@
-# Portafolio Inmersivo 3D - maylocode.dev
+# maylocode.dev — Portafolio Personal
 
-Portafolio web interactivo con experiencia 3D inmersiva, desarrollado con React, TypeScript y React Three Fiber.
+Portafolio web interactivo con estilo de escritorio de desarrollador. Construido con React, TypeScript y Vite, pensado para mostrar proyectos personales de forma más humana y cercana.
 
 ## Stack Tecnológico
 
-- **Frontend:** React 19 + TypeScript + Vite
+- **Frontend:** React 19 + TypeScript
+- **Build tool:** Vite 5
 - **Estilos:** Tailwind CSS v4
-- **3D:** Three.js, @react-three/fiber, @react-three/drei
 - **SEO:** react-helmet-async
-- **Animaciones:** @react-spring/three
+- **Gestión de datos:** Archivos JSON cargados dinámicamente con `fetch()`
 - **Despliegue:** Vercel
 
 ## Instalación
@@ -32,25 +32,38 @@ pnpm run lint     # Linter ESLint
 src/
 ├── components/
 │   ├── layout/          # Layout y SEO
-│   ├── three/           # Escena 3D
-│   └── portfolio/       # UI del portafolio
-├── data/                # Datos de proyectos
+│   ├── sections/        # Secciones del portafolio (About, Projects, Skills, Contact)
+│   └── terminal/        # Boot sequence y prompt de comandos
 ├── hooks/               # Hooks personalizados
-└── types/               # Tipos TypeScript
+├── types/               # Tipos TypeScript
+└── index.css            # Variables de tema y utilidades
 public/
-├── Computer.glb         # Modelo 3D
+├── data/                # Datos JSON de proyectos y habilidades
+├── videos/              # Videos demostrativos de proyectos
+├── cv-es.pdf            # CV en español
+├── cv-en.pdf            # CV en inglés
+├── og-image.svg         # Imagen para redes sociales
 ├── robots.txt           # SEO
 └── sitemap.xml          # SEO
 ```
 
 ## Características
 
-- **Experiencia 3D:** Modelo 3D interactivo de una computadora
-- **Zoom animado:** Click o tecla para hacer zoom hacia el monitor
-- **UI integrada:** Portafolio completo renderizado dentro del monitor 3D
-- **Modo 2D:** Botón ESC para ver versión plana sin 3D
-- **Video hover:** Las tarjetas de proyectos reproducen video al pasar el mouse
-- **SEO optimizado:** Meta tags dinámicas para redes sociales
+- **Escritorio de desarrollador:** Cada sección se presenta como una ventana de aplicación.
+- **Navegación por comandos:** Usá `whoami`, `ls projects`, `cat skills` y `contact` para moverte.
+- **Datos dinámicos:** Proyectos y habilidades se cargan desde archivos JSON con `fetch()`.
+- **Videos demostrativos:** Al pasar el cursor sobre un proyecto se reproduce su video.
+- **Diseño responsivo:** Funciona en escritorio, tablet y móvil.
+- **SEO optimizado:** Meta tags dinámicas para redes sociales.
+
+## Comandos de Navegación
+
+| Comando | Sección |
+|---|---|
+| `whoami` | Perfil y presentación |
+| `ls projects` | Lista de proyectos |
+| `cat skills` | Tecnologías y habilidades |
+| `contact` | Información de contacto |
 
 ## Licencia
 

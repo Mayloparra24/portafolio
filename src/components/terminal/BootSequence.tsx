@@ -27,7 +27,8 @@ export default function BootSequence({ onComplete }: BootSequenceProps) {
       const timer = setTimeout(() => {
         setVisibleLines(prev => [...prev, line.text])
         if (index === BOOT_LINES.length - 1) {
-          setTimeout(() => onComplete(), 500)
+          const completeTimer = setTimeout(() => onComplete(), 500)
+          timers.push(completeTimer)
         }
       }, line.delay)
       timers.push(timer)
@@ -37,36 +38,38 @@ export default function BootSequence({ onComplete }: BootSequenceProps) {
   }, [onComplete])
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-navy-900 font-mono">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-navy-900 font-mono desktop-bg">
       <div className="w-full max-w-2xl px-4">
         <div className="mb-8 text-center">
           <span className="text-accent text-sm">maylo@portfolio:~$</span>
         </div>
-        <div className="space-y-1">
-          {visibleLines.map((line, index) => (
-            <div
-              key={index}
-              className="text-sm font-mono animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {line.startsWith('[OK]') ? (
-                <span>
-                  <span className="text-accent">{line.split(' ')[0]}</span>
-                  <span className="text-text-secondary">{line.slice(4)}</span>
-                </span>
-              ) : line.startsWith('ready') ? (
-                <span className="text-accent">{line}</span>
-              ) : (
-                <span className="text-text-secondary">{line}</span>
-              )}
-            </div>
-          ))}
-          {visibleLines.length === BOOT_LINES.length && (
-            <div className="mt-4 text-sm">
-              <span className="text-accent">$</span>
-              <span className="animate-blink text-accent"> |</span>
-            </div>
-          )}
+        <div className="window p-6">
+          <div className="space-y-1.5">
+            {visibleLines.map((line, index) => (
+              <div
+                key={index}
+                className="text-sm font-mono animate-fade-in"
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                {line.startsWith('[OK]') ? (
+                  <span>
+                    <span className="text-accent">{line.split(' ')[0]}</span>
+                    <span className="text-text-secondary">{line.slice(4)}</span>
+                  </span>
+                ) : line.startsWith('ready') ? (
+                  <span className="text-accent">{line}</span>
+                ) : (
+                  <span className="text-text-secondary">{line}</span>
+                )}
+              </div>
+            ))}
+            {visibleLines.length === BOOT_LINES.length && (
+              <div className="mt-4 text-sm">
+                <span className="text-accent">$</span>
+                <span className="animate-blink text-accent">|</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
