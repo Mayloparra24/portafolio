@@ -28,7 +28,7 @@ pnpm run lint     # Linter ESLint
 
 ## Proyecto desplegado
 
-[Portafolio Personal](maylocode.dev) - Portafolio desplegado en Vercel con dominio gratis dado en GitHub Student 
+<https://maylocode.dev> - Portafolio desplegado en Vercel con dominio gratis dado en GitHub Student 
 
 
 
