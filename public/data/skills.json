@@ -1,0 +1,18 @@
+[
+  { "name": "React", "level": 80, "category": "Frontend" },
+  { "name": "TypeScript", "level": 75, "category": "Frontend" },
+  { "name": "Vue.js", "level": 75, "category": "Frontend" },
+  { "name": "Tailwind CSS", "level": 80, "category": "Frontend" },
+  { "name": "MySQL", "level": 80, "category": "Backend" },
+  { "name": "PostgreSQL", "level": 80, "category": "Backend" },
+  { "name": "SQLServer", "level": 80, "category": "Backend" },
+  { "name": "Git", "level": 90, "category": "Tools" },
+  { "name": "Docker", "level": 75, "category": "Tools" },
+  { "name": "Vite", "level": 80, "category": "Tools" },
+  { "name": "Linux", "level": 75, "category": "Tools" },
+  { "name": "Python", "level": 80, "category": "Backend" },
+  { "name": "Laravel", "level": 75, "category": "Backend" },
+  { "name": "Yolo", "level": 65, "category": "ML" },
+  { "name": "Depth pro", "level": 65, "category": "ML" },
+  { "name": "Jupyter", "level": 90, "category": "Tools" }
+]

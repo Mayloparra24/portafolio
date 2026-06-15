@@ -29,3 +29,4 @@ graphify-out/
 # Build artifacts
 *.tsbuildinfo
 *.tsbuildinfo.*
+.gstack/

@@ -10,7 +10,7 @@ interface SEOProps {
 
 const DEFAULT_TITLE = 'Maylo | Full Stack Developer'
 const DEFAULT_DESCRIPTION =
-  'Portafolio interactivo 3D de Maylo - Desarrollador Full Stack especializado en React, TypeScript y experiencias web inmersivas.'
+  'Portafolio personal de Maylo Parra - Desarrollador Full Stack especializado en React, TypeScript y experiencias web prácticas y bien construidas.'
 const DEFAULT_IMAGE = 'https://maylocode.dev/og-image.png'
 const DEFAULT_URL = 'https://maylocode.dev'
 
@@ -44,7 +44,7 @@ export default function SEO({
       <meta name="twitter:image" content={image} />
 
       <meta name="robots" content="index, follow" />
-      <meta name="author" content="Maylo" />
+      <meta name="author" content="Maylo Parra" />
     </Helmet>
   )
 }

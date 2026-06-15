@@ -1,0 +1,38 @@
+[
+  {
+    "id": "project-1",
+    "title": "Gestor de Restaurante",
+    "description": "Sistema de gestión para restaurantes con control de mesas, órdenes y reportes. Proyecto académico en conjunto con otros estudiantes que me ayudó a entender el flujo completo de un negocio real.",
+    "tags": ["ASP.NET MVC", "C#", "SQL Server", "Entity Framework", "CSS"],
+    "skills": ["ASP.NET MVC", "C#", "SQL Server", "Entity Framework", "CSS"],
+    "repoUrl": "https://github.com/Mayloparra24/GestorDeRestaurante",
+    "videoUrl": "/videos/GestorDeRestaurante.webm"
+  },
+  {
+    "id": "project-2",
+    "title": "Weather App",
+    "description": "Aplicación web que muestra el clima actual y pronóstico para cualquier ciudad. Me ayudó a aprender a consumir APIs externas y manejar estados complejos en Vue.",
+    "tags": ["Vue3","JavaScript", "CSS", "OpenWeatherMap API", "CI/CD"],
+    "skills": ["Vue3","JavaScript", "CSS", "OpenWeatherMap API", "CI/CD"],
+    "repoUrl": "https://github.com/Mayloparra24/Vue3_Grupo1",
+    "videoUrl": "/videos/WeatherApp.webm"
+  },
+  {
+    "id": "project-3",
+    "title": "Microservicio Yolo + Depth pro BowWeightCR",
+    "description": "Este proyecto trata de un microservico para calcular el peso de bovinos por medio de Inteligencia Artificial, utilizando el modelo de detección de objetos Yolo y el modelo de estimación de profundidad Depth pro.",
+    "tags": ["ML", "Python", "Yolo", "Depth pro", "FastAPI","Jupyter"],
+    "skills": ["ML", "Python", "Yolo", "Depth pro", "FastAPI","Jupyter"],
+    "repoUrl": "https://github.com/Mayloparra24/bovweight-api",
+    "videoUrl": "/videos/Microservicio.webm"
+  },
+  {
+    "id": "project-4",
+    "title": "API REST BowWeightCR",
+    "description": "Esta api se encarga de recibir las peticiones de la aplicación móvil, procesarlas y devolver las respuestas correspondientes, esta api esta desarrollada con Laravel, y se encarga de manejar la lógica de negocio, la autenticación y la comunicación con el microservicio de estimación de peso.",
+    "tags": ["Laravel", "PHP", "MySQL"],
+    "skills": ["Laravel", "PHP", "MySQL"],
+    "repoUrl": "https://github.com/Mayloparra24/BowWeightCR_BackEnd",
+    "videoUrl": "/videos/ApiRest.webm"
+  }
+]
