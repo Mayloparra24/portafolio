@@ -44,6 +44,10 @@ export default function AboutSection({ onVisible }: AboutSectionProps) {
                 <img
                   src="/Foto_Portafolio.avif"
                   alt="Maylo"
+                  width="144"
+                  height="144"
+                  loading="eager"
+                  fetchPriority="high"
                   className="w-full h-full object-cover"
                 />
               </div>
