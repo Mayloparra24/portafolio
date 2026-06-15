@@ -1,55 +1,51 @@
 # Referencias y Recursos
 
-## Tecnologías Principales
+## Framework y Herramientas Principales
 
-### Core
-- [React 19](https://react.dev/) - Biblioteca de UI
+- [React 19](https://react.dev/) - Biblioteca para interfaces de usuario
 - [TypeScript](https://www.typescriptlang.org/) - Tipado estático
-- [Vite](https://vitejs.dev/) - Build tool y dev server
-
-### Estilos
+- [Vite](https://vitejs.dev/) - Build tool y servidor de desarrollo
 - [Tailwind CSS v4](https://tailwindcss.com/) - Framework CSS utility-first
-- [SVGL](https://svgl.app/) - Librería de logos SVG para iconos de contacto
-
-### SEO
-- [react-helmet-async](https://github.com/staylor/react-helmet-async) - Manejo de meta tags dinámicas
+- [react-helmet-async](https://github.com/staylor/react-helmet-async) - Manejo de meta tags
 
 ## Herramientas de Desarrollo
 
 - [pnpm](https://pnpm.io/) - Package manager
-- [ESLint](https://eslint.org/) - Linter para JavaScript/TypeScript
+- [ESLint](https://eslint.org/) - Linter
 - [Vercel](https://vercel.com/) - Plataforma de despliegue
-- [Graphify](https://github.com/pheralb/svgl) - Análisis de arquitectura del proyecto
 
 ## Recursos del Portafolio
 
-### Assets
-- **Foto_Portafolio.png** - Foto de perfil del desarrollador
-- **GestorDeRestaurante.webm** - Video demostrativo de proyecto
-- **cv-es.pdf** - CV en español
-- **cv-en.pdf** - CV en inglés
+### Assets propios
 
-### Diseño
-- **Estilo Terminal**: Inspirado en interfaces de línea de comandos con estética moderna
-- **Paleta de colores**: Deep Navy Blue (#0a192f, #112240) con acento en verde menta (#64ffda)
-- **Tipografía**: Inter (sans-serif), JetBrains Mono (monospace)
-- **Animaciones**: Efectos de typing, cursor parpadeante, staggered reveal
+- **profile-photo.svg** — Placeholder de foto de perfil (reemplazar por foto propia)
+- **cv-es.pdf** — CV en español
+- **cv-en.pdf** — CV en inglés
+- **videos/*.webm** — Videos demostrativos grabados por el autor para cada proyecto
 
-## Tutoriales y Guías
+### Recursos de terceros
 
-- [Tailwind CSS v4 Migration Guide](https://tailwindcss.com/docs/upgrade-guide)
+- Iconos de GitHub, LinkedIn y correo: SVGs oficiales de cada plataforma.
+- Tipografías: Inter y JetBrains Mono, disponibles a través de Google Fonts o sistema.
+
+## Diseño
+
+- **Estilo:** Escritorio de desarrollador con ventanas estilo macOS.
+- **Paleta de colores:** Azul marino profundo (#0a192f, #112240) con acento menta (#64ffda).
+- **Tipografía:** Inter (texto general), JetBrains Mono (código y terminal).
+- **Animaciones:** Fade-in, cursor parpadeante y transiciones suaves con CSS puro.
+
+## Guías y Documentación Consultada
+
+- [Tailwind CSS v4 Docs](https://tailwindcss.com/docs)
 - [React Hooks Documentation](https://react.dev/reference/react)
-- [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) - Para animaciones de scroll
+- [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+- [Using fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
-## Estructura de Comandos (Terminal)
+## Declaración de Uso de Inteligencia Artificial
 
-El portafolio utiliza una interfaz de terminal con los siguientes comandos:
-- `whoami` - Sección de perfil y presentación
-- `ls projects` - Lista de proyectos con videos hover
-- `cat skills` - Tecnologías y habilidades con barras de progreso
-- `contact` - Información de contacto y redes sociales
+Durante el desarrollo se utilizó **OpenCode** como asistente para revisión de código, depuración y exploración de ideas de diseño. Las decisiones conceptuales, la selección de proyectos, el contenido personal y la estructura general del portafolio fueron realizadas por el autor.
 
 ## Créditos
 
-Proyecto desarrollado como parte del curso IF7105 - Desarrollo de Aplicaciones Web.
-
+Proyecto desarrollado como parte del curso **IF7102 - Multimedios**, Universidad de Costa Rica.

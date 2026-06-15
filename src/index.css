@@ -2,13 +2,18 @@
 
 @theme {
   --color-navy-900: #0a192f;
+  --color-navy-850: #0d1f3a;
   --color-navy-800: #112240;
+  --color-navy-750: #162b4d;
   --color-navy-700: #1d3461;
   --color-navy-600: #233554;
   --color-accent: #64ffda;
   --color-accent-dim: rgba(100, 255, 218, 0.1);
   --color-text-primary: #ccd6f6;
   --color-text-secondary: #8892b0;
+  --color-window-red: #ff5f57;
+  --color-window-yellow: #febc2e;
+  --color-window-green: #28c840;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
@@ -33,13 +38,24 @@ html, body, #root {
   color: var(--color-accent);
 }
 
+/* Developer desktop background */
+.desktop-bg {
+  background-color: var(--color-navy-900);
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(100, 255, 218, 0.04) 0%, transparent 35%),
+    radial-gradient(circle at 85% 75%, rgba(100, 255, 218, 0.03) 0%, transparent 30%),
+    linear-gradient(rgba(100, 255, 218, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 255, 218, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -48,18 +64,27 @@ html, body, #root {
   to { width: 100%; }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
 .animate-blink {
   animation: blink 1s step-end infinite;
 }
 
 .animate-fade-in {
-  animation: fade-in 0.4s ease-out forwards;
+  animation: fade-in 0.5s ease-out forwards;
 }
 
 .animate-typing {
   overflow: hidden;
   white-space: nowrap;
   animation: typing 2s steps(40, end);
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -69,4 +94,117 @@ html, body, #root {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Window chrome */
+.window {
+  background: var(--color-navy-800);
+  border: 1px solid var(--color-navy-600);
+  border-radius: 12px;
+  box-shadow:
+    0 20px 40px rgba(2, 12, 27, 0.7),
+    0 0 0 1px rgba(100, 255, 218, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.window:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 28px 56px rgba(2, 12, 27, 0.8),
+    0 0 0 1px rgba(100, 255, 218, 0.12);
+  border-color: rgba(100, 255, 218, 0.2);
+}
+
+.window-titlebar {
+  background: var(--color-navy-750);
+  border-bottom: 1px solid var(--color-navy-600);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.window-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.window-dot-red { background: var(--color-window-red); }
+.window-dot-yellow { background: var(--color-window-yellow); }
+.window-dot-green { background: var(--color-window-green); }
+
+.window-title {
+  margin-left: 12px;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+}
+
+.window-content {
+  padding: 24px;
+}
+
+/* Terminal styling */
+.terminal-line {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.terminal-prompt {
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+/* Project card video overlay */
+.project-preview {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--color-navy-850);
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-navy-600);
+}
+
+.project-preview video,
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.window:hover .project-preview video,
+.window:hover .project-preview img {
+  transform: scale(1.03);
+}
+
+/* Skill bars */
+.skill-bar-bg {
+  background: var(--color-navy-700);
+  border-radius: 999px;
+  overflow: hidden;
+  height: 8px;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), rgba(100, 255, 218, 0.7));
+  border-radius: 999px;
+  transition: width 1s ease-out;
+}
+
+/* Sticky note aesthetic for skill categories */
+.sticky-note {
+  background: var(--color-navy-750);
+  border-left: 4px solid var(--color-accent);
+  padding: 20px;
+  border-radius: 0 12px 12px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .window-content {
+    padding: 16px;
+  }
 }

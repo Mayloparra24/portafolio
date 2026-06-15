@@ -54,90 +54,103 @@ export default function ContactSection({ onVisible }: ContactSectionProps) {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {
-      // Fallback for browsers without clipboard API
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     }
   }
 
   return (
-    <section ref={sectionRef} className="min-h-screen py-20 px-4">
+    <section ref={sectionRef} className="min-h-screen py-24 px-4">
       <div className="max-w-2xl mx-auto">
-        <div className="flex items-center gap-2 mb-8 text-sm font-mono">
-          <span className="text-accent">$</span>
+        <div className="flex items-center gap-2 mb-10 text-sm font-mono animate-fade-in">
+          <span className="text-accent">maylo@portfolio:~$</span>
           <span className="text-text-primary">contact</span>
         </div>
 
-        <div className="space-y-4 animate-fade-in">
-          <div className="flex items-center gap-4 p-4 border border-navy-700 rounded-lg hover:border-accent transition-colors">
-            <div className="text-accent">
-              <MailIcon />
-            </div>
-            <div className="flex-1">
-              <span className="text-accent font-mono text-sm block">email:</span>
-              <span className="text-text-primary font-mono text-sm">a494256@gmail.com</span>
-            </div>
-            <button
-              onClick={handleCopy}
-              className="px-3 py-1 bg-accent/10 border border-accent text-accent rounded text-xs font-mono hover:bg-accent/20 transition-colors"
-            >
-              {copied ? 'Copied!' : 'Copy'}
-            </button>
+        <div className="window animate-fade-in">
+          <div className="window-titlebar">
+            <span className="window-dot window-dot-red" />
+            <span className="window-dot window-dot-yellow" />
+            <span className="window-dot window-dot-green" />
+            <span className="window-title">contact.txt — Mensaje nuevo</span>
           </div>
 
-          <div className="flex items-center gap-4 p-4 border border-navy-700 rounded-lg hover:border-accent transition-colors">
-            <div className="text-text-primary">
-              <GitHubIcon />
+          <div className="window-content space-y-4">
+            <p className="text-text-secondary text-sm leading-relaxed mb-6">
+              Si querés charlar sobre un proyecto, una oportunidad o simplemente hablar de tecnología, escribime.
+              Respondo más rápido por correo.
+            </p>
+
+            <div className="flex items-center gap-4 p-4 bg-navy-850 rounded-lg border border-navy-600 hover:border-accent transition-colors group">
+              <div className="text-accent">
+                <MailIcon />
+              </div>
+              <div className="flex-1 min-w-0">
+                <span className="text-accent font-mono text-xs block">email</span>
+                <span className="text-text-primary font-mono text-sm">a494256@gmail.com</span>
+              </div>
+              <button
+                onClick={handleCopy}
+                className="px-3 py-1.5 bg-accent/10 border border-accent text-accent rounded text-xs font-mono hover:bg-accent/20 transition-colors"
+              >
+                {copied ? 'Copiado!' : 'Copiar'}
+              </button>
             </div>
-            <div className="flex-1">
-              <span className="text-accent font-mono text-sm block">github:</span>
+
+            <div className="flex items-center gap-4 p-4 bg-navy-850 rounded-lg border border-navy-600 hover:border-accent transition-colors">
+              <div className="text-text-primary">
+                <GitHubIcon />
+              </div>
+              <div className="flex-1 min-w-0">
+                <span className="text-accent font-mono text-xs block">github</span>
+                <a
+                  href="https://github.com/Mayloparra24"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-primary hover:text-accent transition-colors font-mono text-sm truncate block"
+                >
+                  github.com/Mayloparra24
+                </a>
+              </div>
               <a
                 href="https://github.com/Mayloparra24"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-primary hover:text-accent transition-colors font-mono text-sm"
+                className="px-3 py-1.5 bg-accent/10 border border-accent text-accent rounded text-xs font-mono hover:bg-accent/20 transition-colors"
               >
-                github.com/Mayloparra24
+                Abrir
               </a>
             </div>
-            <a
-              href="https://github.com/Mayloparra24"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1 bg-accent/10 border border-accent text-accent rounded text-xs font-mono hover:bg-accent/20 transition-colors"
-            >
-              Open
-            </a>
-          </div>
 
-          <div className="flex items-center gap-4 p-4 border border-navy-700 rounded-lg hover:border-accent transition-colors">
-            <div className="text-text-primary">
-              <LinkedInIcon />
-            </div>
-            <div className="flex-1">
-              <span className="text-accent font-mono text-sm block">linkedin:</span>
+            <div className="flex items-center gap-4 p-4 bg-navy-850 rounded-lg border border-navy-600 hover:border-accent transition-colors">
+              <div className="text-text-primary">
+                <LinkedInIcon />
+              </div>
+              <div className="flex-1 min-w-0">
+                <span className="text-accent font-mono text-xs block">linkedin</span>
+                <a
+                  href="https://www.linkedin.com/in/maylo-parra-aguirre-298a61173/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-primary hover:text-accent transition-colors font-mono text-sm truncate block"
+                >
+                  linkedin.com/in/maylo-parra-aguirre
+                </a>
+              </div>
               <a
                 href="https://www.linkedin.com/in/maylo-parra-aguirre-298a61173/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-primary hover:text-accent transition-colors font-mono text-sm"
+                className="px-3 py-1.5 bg-accent/10 border border-accent text-accent rounded text-xs font-mono hover:bg-accent/20 transition-colors"
               >
-                linkedin.com/in/maylo-parra-aguirre-298a61173
+                Abrir
               </a>
             </div>
-            <a
-              href="https://www.linkedin.com/in/maylo-parra-aguirre-298a61173/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1 bg-accent/10 border border-accent text-accent rounded text-xs font-mono hover:bg-accent/20 transition-colors"
-            >
-              Open
-            </a>
           </div>
         </div>
 
-        <div className="text-center text-sm text-text-secondary font-mono mt-12">
-          <span className="text-accent">$</span> Type any command to navigate
+        <div className="text-center text-sm text-text-secondary font-mono mt-12 animate-fade-in">
+          <span className="text-accent">$</span> Escribí un comando para navegar entre ventanas
         </div>
       </div>
     </section>
