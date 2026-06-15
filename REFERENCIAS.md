@@ -18,7 +18,7 @@
 
 ### Assets propios
 
-- **profile-photo.svg** — Placeholder de foto de perfil (reemplazar por foto propia)
+- **Foto_Portafolio.avif** — Placeholder de foto de perfil (reemplazar por foto propia)
 - **cv-es.pdf** — CV en español
 - **cv-en.pdf** — CV en inglés
 - **videos/*.webm** — Videos demostrativos grabados por el autor para cada proyecto
