@@ -35,12 +35,13 @@
 - **Tipografía:** Inter (texto general), JetBrains Mono (código y terminal).
 - **Animaciones:** Fade-in, cursor parpadeante y transiciones suaves con CSS puro.
 
-## Guías y Documentación Consultada
+## Guías, Cursos y Documentación Consultada
 
 - [Tailwind CSS v4 Docs](https://tailwindcss.com/docs)
 - [React Hooks Documentation](https://react.dev/reference/react)
 - [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 - [Using fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- [REACT curso de 0 a EXPERTO 2025](https://youtube.com/watch?v=GMnWXlJnbNo&si=EY7qi2CxKb7x61H1)
 
 ## Declaración de Uso de Inteligencia Artificial
 
